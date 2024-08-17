@@ -1,0 +1,85 @@
+:root {
+    --sns-link-size: 200px;
+    --sns-link-icon-size: 120px;
+    --sns-link-icon-hover-size: 170px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    margin-top: 20px;
+    position: relative;
+    width: 200px;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* 要素を自身の中央に移動 */
+}
+
+.background-image {
+    background-image: url("images/backgroundImage.jpg");
+    background-size: 100vw auto;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    filter: saturate(55%);
+}
+
+.sns-links {
+    position: relative;
+    width: 80%;
+    height: var(--sns-link-size);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* 要素を自身の中央に移動 */
+}
+
+.sns-link {
+    position: relative;
+    width: var(--sns-link-size);
+    height: var(--sns-link-size);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* 要素を自身の中央に移動 */
+}
+
+.sns-link a {
+    display: block;
+    position: relative;
+    width: var(--sns-link-size);
+    height: var(--sns-link-size);
+    border-radius: 50%;
+}
+
+.sns-link a:hover img {
+    width: var(--sns-link-icon-hover-size);
+}
+
+.sns-link img {
+    position: relative;
+    width: var(--sns-link-icon-size);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* 要素を自身の中央に移動 */
+    transition: width .3s ease; /* 2秒かけて変化する */
+}
+
+
+@media screen and (min-aspect-ratio: 3/2) {
+    .background-container {
+        background-size: auto 100vh;
+        /* 縦幅を100vhに合わせる */
+    }
+}
