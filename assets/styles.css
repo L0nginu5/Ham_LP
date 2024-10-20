@@ -1,0 +1,339 @@
+:root {
+    --sns-link-size: 200px;
+    --sns-link-icon-size: 120px;
+    --sns-link-icon-hover-size: 170px;
+}
+
+body {
+    font-family: 'Apple Color Emoji', 'Inter', sans-serif;
+}
+
+
+img {
+    position: relative;
+}
+
+.center-horizon {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.center {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+strong {
+    color: rgb(255, 225, 0);
+}
+
+.logo {
+    margin-top: 40px;
+    position: relative;
+    width: 250px;
+    height: auto;
+}
+
+.background-image {
+    background-image: url("images/backgroundImage.jpg");
+    background-size: auto 100vh;
+    top: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    filter: saturate(55%);
+    animation: background-change 12s linear infinite; /* 回転アニメーションを適用 */
+
+}
+
+.heart {
+    top: 30%;
+    /* モーションパスの設定 */
+    offset-path: path('M 300 300 Q 250 275, 300 250 T 300 200 T 300 150 T 300 100');
+
+    offset-rotate: 0deg;
+}
+
+.sns-links {
+    width: 80%;
+    height: var(--sns-link-size);
+    top: 0;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.sns-link {
+    width: var(--sns-link-size);
+    height: var(--sns-link-size);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    top: 0;
+}
+
+.sns-link a {
+    display: block;
+    position: relative;
+    width: var(--sns-link-size);
+    height: var(--sns-link-size);
+    border-radius: 50%;
+}
+
+.sns-link a:hover img {
+    width: var(--sns-link-icon-hover-size);
+}
+
+.sns-link img {
+    width: var(--sns-link-icon-size);
+    border-radius: 50%;
+    transition: width .3s ease;
+    /* 2秒かけて変化する */
+}
+
+.content {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.contents {
+    width: 75%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.contents img {
+    width: 500px;
+}
+
+.liver-image-right::before {
+    left: calc(75% - 258px);
+    top: calc(50% - 258px);
+    content: "";
+    position: absolute;
+    width: 516px;
+    height: 516px;
+    border-radius: 100%;
+    background: conic-gradient(
+        from 0deg, /* 初期回転角度 */
+        rgb(242, 51, 245) 0deg 120deg,        /* 左上 */
+        rgb(70, 178, 255) 120deg 240deg,     /* 右上 */
+        rgb(167, 231, 64) 240deg 360deg  /* 右下 */
+    );
+    animation: rotate 10s linear infinite; /* 回転アニメーションを適用 */
+    z-index: -1; /* 背景として配置 */
+}
+
+.liver-image-left::before {
+    right: calc(75% - 258px);
+    top: calc(50% - 258px);
+    content: "";
+    position: absolute;
+    width: 516px;
+    height: 516px;
+    border-radius: 100%;
+    background: conic-gradient(
+        from 0deg, /* 初期回転角度 */
+        rgb(242, 51, 245) 0deg 120deg,        /* 左上 */
+        rgb(70, 178, 255) 120deg 240deg,     /* 右上 */
+        rgb(167, 231, 64) 240deg 360deg  /* 右下 */
+    );
+    animation: rotate 10s linear infinite; /* 回転アニメーションを適用 */
+    z-index: -1; /* 背景として配置 */
+}
+
+
+.description {
+    width: 620px;
+    height: 290px;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    /* border: 5px solid #FF6CC4; */
+
+    /* color: #FFFFFF; */
+    /* background-color: rgba(255, 117, 135, 0.9); */
+}
+
+.description span {
+    font-size: 40px;
+}
+
+/* 親要素のスタイル */
+.description-anime {
+    border-radius: 50px; /* 角を丸くする */
+    padding: 7px; /* ボーダーの幅 */
+    box-sizing: border-box; /* パディングを含めたサイズ計算 */
+    overflow: hidden; /* 擬似要素がはみ出さないようにする */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 擬似要素による回転するグラデーションボーダー */
+.description-anime::before {
+    content: "";
+    position: absolute;
+    top: -500px; /* ボーダーの幅より少し大きめに設定 */
+    left: -500px;
+    right: -500px;
+    bottom: -500px;
+    border-radius: inherit; /* 親要素と同じ角の丸み */
+    background: conic-gradient(
+        from 0deg, /* 初期回転角度 */
+        rgb(242, 51, 245) 0deg 120deg,        /* 左上 */
+        rgb(70, 178, 255) 120deg 240deg,     /* 右上 */
+        rgb(167, 231, 64) 240deg 360deg  /* 右下 */
+    );
+    animation: rotate 10s linear infinite; /* 回転アニメーションを適用 */
+    z-index: -1; /* 背景として配置 */
+    /* ボーダーとして表示するために以下を設定 */
+    box-sizing: border-box; /* パディングを含めたサイズ計算 */
+}
+
+/* 内部の白い背景を覆う擬似要素 */
+.description-anime::after {
+    content: "";
+    position: absolute;
+    top: 7px; /* ::before の padding と一致させる */
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    background-color: #FFFFFF; /* 内部を白く設定 */
+    border-radius: inherit; /* 親要素と同じ角の丸み */
+    z-index: -1; /* コンテンツより前面に表示 */
+}
+
+/* アニメーションの定義 */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveAlongPath {
+    0% {
+        offset-distance: 0%;
+        opacity: 0%;
+    }
+    10% {
+        opacity: 100%;
+
+    }
+    90% {
+        opacity: 100%;
+
+    }
+    100% {
+        offset-distance: 100%;
+        opacity: 0%;
+
+    }
+}
+
+@keyframes background-change {
+    5%,95%, 20%,30%, 45%,55%, 70%,80%{
+        background-image: url("images/backgroundImage_white.jpg");
+    }
+    0%, 100%{
+        background-image: url("images/backgroundImage.jpg");
+    }
+    25% {
+        background-image: url("images/backgroundImage_violet.jpg");
+    }
+    50% {
+        background-image: url("images/backgroundImage_yellow.jpg");
+    }
+    75% {
+        background-image: url("images/backgroundImage_blue.jpg");
+    }
+}
+
+.height-800px {
+    height: 800px;
+}
+
+.description-2 {
+    position: relative; /* 吹き出しのために相対位置を設定 */
+    color: #FFFFFF;
+    background-color: rgba(85, 207, 255, 0.9); /* 背景色を50%透過 */
+    border: 0px solid;
+    border-radius: 20px;
+    width: 650px;
+    margin-bottom: 2em;
+}
+
+.description-2::after {
+    content: "";
+    position: absolute;
+    top: 50%; /* 縦方向で中央に配置 */
+    right: -159px; /* 親要素の外に三角形を配置 */
+    transform: translateY(-50%); /* 三角形を縦方向に中央揃え */
+    border-width: 80px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(85, 207, 255, 0.9); /* 背景色と同じ色の右向き三角形 */
+}
+
+
+.description-2 span {
+    font-size: 40px;
+}
+
+.text-left {
+    text-align: left;
+    margin-left: 3%;
+}
+
+.name {
+    font-size: 50px;
+    text-decoration: underline;
+    padding-bottom: 30px;
+}
+
+
+
+.smartphone img {
+    position: absolute;
+    display: flex;
+    height: 700px;
+    width: auto;
+}
+
+.smartphone-frame img {
+    height: 720px;
+    width: auto;
+    z-index: 3;
+}
+
+
+.swiper {
+    height: 700px;
+    top: 50px;
+    width: auto;
+    z-index: 5;
+    position: relative;
+}
+
+.width-70 {
+    width: 70%;
+}
+
+
+
+@media screen and (min-aspect-ratio: 3/2) {
+    .background-image {
+        background-size: 100vw auto;
+        /* 縦幅を100vhに合わせる */
+    }
+}
