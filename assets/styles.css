@@ -3,14 +3,11 @@
     --sns-link-icon-size: 120px;
     --sns-link-icon-hover-size: 160px;
     --border-thickness: .4vw;
+    --sm-object-rate: 1.5;
+    --liver-image-size: 27vw;
+    --description-width-size: 32vw;
 }
-@media (max-width: 1024px) {
-    :root {
-        --sns-link-size: 100px;
-        --sns-link-icon-size: 60px;
-        --sns-link-icon-hover-size: 80px;
-    }
-}
+
 
 
 body {
@@ -47,7 +44,7 @@ strong {
 }
 
 .logo {
-    margin-top: 40px;
+    margin-top: 2vw;
     position: relative;
     width: 250px;
     height: auto;
@@ -129,15 +126,17 @@ strong {
 }
 
 .contents img {
-    width: 26vw;
+    width: calc(var(--liver-image-size) - 1vw);
 }
-
+.description-frame {
+    height: var(--liver-image-size);
+}
 .liver-image::before {
-    top: calc(50% - 13.5vw);
+    top: calc(50% - var(--liver-image-size)/2);
     content: "";
     position: absolute;
-    width: 27vw;
-    height: 27vw;
+    width: var(--liver-image-size);
+    height: var(--liver-image-size);
     border-radius: 100%;
     background: conic-gradient(
         from 0deg, /* 初期回転角度 */
@@ -149,56 +148,37 @@ strong {
     z-index: -1; /* 背景として配置 */
 }
 .liver-image-right::before {
-    left: calc(75% - 13.5vw);
+    left: calc(75% - var(--liver-image-size)/2);
 }
-
 .liver-image-left::before {
-    right: calc(75% - 13.5vw);
+    right: calc(75% - var(--liver-image-size)/2);
 }
-
 
 .description {
-    width: 32vw;
-    height: 17vw;
+    width: var(--description-width-size);
+    height: calc(var(--description-width-size)/2);
     background-color: #FFFFFF;
 }
-
 .description span {
-    font-size: 2vw;
+    font-size: calc(var(--description-width-size)/16);
 }
 
-/* 親要素のスタイル */
-.description-anime {
-    border-radius: 50px; /* 角を丸くする */
-    border-radius: 3vw;
+.description-white {
+    border-radius: calc(var(--description-width-size)/10);
     padding: var(--border-thickness); /* ボーダーの幅 */
-    padding: 1vw;
+    padding: calc(var(--description-width-size)/32);
     box-sizing: border-box; /* パディングを含めたサイズ計算 */
     overflow: hidden; /* 擬似要素がはみ出さないようにする */
     align-items: center;
     justify-content: center;
 }
-
-.description-2 {
-    color: #FFFFFF;
-    background-color: rgba(85, 207, 255, 0.9); /* 背景色を50%透過 */
-    border: 0px solid;
-    border-radius: 20px;
-    margin-bottom: 2em;
-}
-
-.description-2::after {
-    content: "";
-    position: absolute;
-    top: 50%; /* 縦方向で中央に配置 */
-    right: -7.9vw; /* 親要素の外に三角形を配置 */
-    transform: translateY(-50%); /* 三角形を縦方向に中央揃え */
-    border-width: 4vw;
-    border-style: solid;
-    border-color: transparent transparent transparent rgba(85, 207, 255, 0.9); /* 背景色と同じ色の右向き三角形 */
+.description-white-name {
+    font-size: calc(var(--description-width-size)/10);
+    text-decoration: underline;
+    padding-bottom: calc(var(--description-width-size)/16);
 }
 /* 擬似要素による回転するグラデーションボーダー */
-.description-anime::before {
+.description-white::before {
     content: "";
     position: absolute;
     top: -500px; /* ボーダーの幅より少し大きめに設定 */
@@ -217,9 +197,8 @@ strong {
     /* ボーダーとして表示するために以下を設定 */
     box-sizing: border-box; /* パディングを含めたサイズ計算 */
 }
-
 /* 内部の白い背景を覆う擬似要素 */
-.description-anime::after {
+.description-white::after {
     content: "";
     position: absolute;
     top: var(--border-thickness); /* ::before の padding と一致させる */
@@ -229,6 +208,26 @@ strong {
     background-color: #FFFFFF; /* 内部を白く設定 */
     border-radius: inherit; /* 親要素と同じ角の丸み */
     z-index: -1; /* コンテンツより前面に表示 */
+}
+
+
+.description-blue {
+    color: #FFFFFF;
+    background-color: rgba(85, 207, 255, 0.9); /* 背景色を50%透過 */
+    border: 0px solid;
+    border-radius: calc(var(--description-width-size)/16);
+    margin-bottom: 2em;
+}
+.description-blue::after {
+    content: "";
+    position: absolute;
+    top: 50%; /* 縦方向で中央に配置 */
+    right: calc(-1 * var(--description-width-size)/4 + .1vw); /* 親要素の外に三角形を配置 */
+    transform: translateY(-50%); /* 三角形を縦方向に中央揃え */
+    border-width: calc(var(--description-width-size)/8);
+
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(85, 207, 255, 0.9); /* 背景色と同じ色の右向き三角形 */
 }
 
 .splash {
@@ -287,22 +286,12 @@ strong {
 }
 
 .height-800px {
-    /* height: 800px; */
     height: 43vw;
 }
-
-
-
 
 .text-left {
     text-align: left;
     margin-left: 3%;
-}
-
-.name {
-    font-size: 3vw;
-    text-decoration: underline;
-    padding-bottom: 2vw;
 }
 
 
@@ -320,19 +309,66 @@ strong {
     z-index: 3;
 }
 
-
 .swiper {
     height: 36vw;
-    top: 50px;
+    top: 2vw;
     top: 3vw;
     width: auto;
     z-index: 5;
     position: relative;
 }
 
-.width-70 {
-    width: 70%;
+
+
+
+
+@media (max-width: 1024px) {
+    :root {
+        --sns-link-size: 100px;
+        --sns-link-icon-size: 60px;
+        --sns-link-icon-hover-size: 80px;
+        --liver-image-size: 40vw;
+        --description-width-size: 40vw;
+
+    }
+    .contents {
+        width: 95%;
+    }
+    .logo {
+        width: 150px;
+    }
+    .text-left {
+        text-align: left;
+        margin-left: 3%;
+    }
+    
+    .height-800px {
+        height: calc(43vw * var(--sm-object-rate));
+    }
+    .smartphone img {
+        height: calc(36vw * var(--sm-object-rate));
+    }
+    .smartphone-frame img {
+        height: calc(38vw * var(--sm-object-rate));
+        width: auto;
+        z-index: calc(3vw * var(--sm-object-rate));
+    }
+    .swiper {
+        height: calc(36vw * var(--sm-object-rate));
+        top: calc(2vw * var(--sm-object-rate));
+        top: calc(3vw * var(--sm-object-rate));
+    }
 }
-
-
-
+@media (max-width: 568px) {
+    .liver-image-right::before {
+        left: calc(50% - 13.5vw);
+        top: calc(75% - 13.5vw);
+    }
+    .liver-image-left::before {
+        right: calc(50% - 13.5vw);
+        top: calc(75% - 13.5vw);
+    }
+    .description {
+        top: 30%;
+    }
+}
