@@ -130,6 +130,7 @@ strong {
 }
 .description-frame {
     height: var(--liver-image-size);
+    margin: 0;
 }
 .liver-image::before {
     top: calc(50% - var(--liver-image-size)/2);
@@ -152,6 +153,9 @@ strong {
 }
 .liver-image-left::before {
     right: calc(75% - var(--liver-image-size)/2);
+}
+.liver-image {
+    margin: 0;
 }
 
 .description {
@@ -329,6 +333,7 @@ strong {
         --sns-link-icon-hover-size: 80px;
         --liver-image-size: 40vw;
         --description-width-size: 40vw;
+        --border-thickness: .6vw;
 
     }
     .contents {
@@ -358,17 +363,28 @@ strong {
         top: calc(2vw * var(--sm-object-rate));
         top: calc(3vw * var(--sm-object-rate));
     }
+    .contents img {
+        width: calc(var(--liver-image-size) - 1vw * var(--sm-object-rate));
+    }
 }
 @media (max-width: 568px) {
     .liver-image-right::before {
-        left: calc(50% - 13.5vw);
-        top: calc(75% - 13.5vw);
+        left: calc(50% - var(--liver-image-size)/2);
+        top: calc(75% - var(--liver-image-size)/2);
     }
     .liver-image-left::before {
-        right: calc(50% - 13.5vw);
-        top: calc(75% - 13.5vw);
+        right: calc(50% - var(--liver-image-size)/2);
+        top: calc(25% - var(--liver-image-size)/2);
     }
     .description {
         top: 30%;
+    }
+    .contents {
+        margin-top: 0em;
+        margin-bottom: 0em;
+    }
+    .content {
+        margin-top: 0em;
+        margin-bottom: 0em;
     }
 }
