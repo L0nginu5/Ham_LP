@@ -60,7 +60,7 @@ strong {
     width: 100%;
     height: 100%;
     background-position: center;
-    filter: saturate(55%);
+    filter: saturate(45%);
     animation: background-change 12s linear infinite; /* 回転アニメーションを適用 */
 
 }
@@ -124,7 +124,6 @@ strong {
     margin-top: 2em;
     margin-bottom: 2em;
 }
-
 .contents img {
     width: calc(var(--liver-image-size) - 1vw);
 }
@@ -306,23 +305,80 @@ strong {
     height: 36vw;
     width: auto;
 }
-
 .smartphone-frame img {
     height: 38vw;
     width: auto;
     z-index: 3;
 }
-
 .swiper {
     height: 36vw;
-    top: 2vw;
     top: 3vw;
     width: auto;
     z-index: 5;
     position: relative;
 }
 
+@keyframes fireworks-animation {
+	0% {
+		transform: translate(-50%, 90vh);
+		width: .5vw;
+		opacity: 1;
+	}
+	50% {
+		width: .5vw;
+		opacity: 1;
+	}
+	100% {
+		width: 20vw;
+		opacity: 0;
+	}
+}
 
+.c-firework,
+.c-firework::before,
+.c-firework::after {
+	content: "";
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	aspect-ratio: 1;
+	background:
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 50% 0%,
+    radial-gradient(circle, #ff0 10px, #000 0) 0% 50%,
+    radial-gradient(circle, #ff0 10px, #000 0) 50% 99%,
+    radial-gradient(circle, #ff0 10px, #000 0) 99% 50%,
+    radial-gradient(circle, #ff0 10px, #000 0) 80% 90%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 95% 90%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 10% 60%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 31% 80%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 80% 10%,
+    radial-gradient(circle, rgb(255, 0, 0) 10px, #000 0) 90% 23%,
+    radial-gradient(circle, rgb(255, 0, 0) 10px, #000 0) 45% 20%,
+    radial-gradient(circle, rgb(255, 0, 0) 10px, #000 0) 13% 24%,
+    radial-gradient(circle, rgb(255, 0, 0) 10px, #000 0) 60% 70%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 40% 60%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 15% 10%,
+    radial-gradient(circle, #fff 10px, #000 0) 85% 15%,
+    radial-gradient(circle, #fff 10px, #000 0) 25% 85%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 75% 30%,
+    radial-gradient(circle, #fff 10px, #000 0) 50% 40%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 90% 80%,
+    radial-gradient(circle, #fff 10px, #000 0) 5% 95%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 70% 25%,
+    radial-gradient(circle, #ff0 10px, #000 0) 10% 40%,
+    radial-gradient(circle, rgb(255, 170, 0) 10px, #000 0) 30% 10%;
+	background-size: .3vw .3vw;
+	background-repeat: no-repeat;
+	transform: translate(-50%, -50%);
+	animation: fireworks-animation 8s infinite;
+    z-index: 100;
+}
+.c-firework::before {
+	transform: translate(-50%, -50%) rotate(25deg) !important;
+}
+.c-firework::after {
+	transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
 
 
 
@@ -334,7 +390,6 @@ strong {
         --liver-image-size: 40vw;
         --description-width-size: 40vw;
         --border-thickness: .6vw;
-
     }
     .contents {
         width: 95%;
@@ -356,18 +411,17 @@ strong {
     .smartphone-frame img {
         height: calc(38vw * var(--sm-object-rate));
         width: auto;
-        z-index: calc(3vw * var(--sm-object-rate));
     }
     .swiper {
         height: calc(36vw * var(--sm-object-rate));
-        top: calc(2vw * var(--sm-object-rate));
         top: calc(3vw * var(--sm-object-rate));
-    }
-    .contents img {
-        width: calc(var(--liver-image-size) - 1vw * var(--sm-object-rate));
     }
 }
 @media (max-width: 568px) {
+    :root {
+        --liver-image-size: 55vw;
+        --description-width-size: 47vw;
+    }
     .liver-image-right::before {
         left: calc(50% - var(--liver-image-size)/2);
         top: calc(75% - var(--liver-image-size)/2);
