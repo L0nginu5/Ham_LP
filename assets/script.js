@@ -39,6 +39,24 @@ function swiping() {
 
 
 
+function setScaledPath() {
+    const screenWidth = window.innerWidth;
+    const scaleFactor = screenWidth / 1000; // 基準幅1000pxに対する縮尺を設定
+
+    // スケーリングされたパスを生成
+    const scaledPath = `M 0 0 Q ${-30 * scaleFactor} ${-15 * scaleFactor}, 0 ${-30 * scaleFactor} T 0 ${-60 * scaleFactor} T 0 ${-90 * scaleFactor} T 0 ${-120 * scaleFactor}`;
+
+    // パスをCSS変数として設定
+    document.documentElement.style.setProperty('--scaled-path', `path('${scaledPath}')`);
+}
+
+// 初回のパス設定と、リサイズ時に再設定
+setScaledPath();
+window.addEventListener('resize', setScaledPath);
+
+
+
+
 const root = document.documentElement;
 let angle = 0; // 初期角度
 let speed = .61*2; // 初期の回転速度

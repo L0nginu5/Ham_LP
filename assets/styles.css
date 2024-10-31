@@ -36,7 +36,8 @@ img {
 
 h1 {
     font-size: 3vw;
-    margin: 0;
+    margin-top: 3em;
+    margin-bottom: 0;
     padding: 0;
 }
 
@@ -80,11 +81,44 @@ strong {
 }
 
 .heart {
-    top: 30%;
+    width: auto;
+    height: auto;
+}
+.heart img {
     /* モーションパスの設定 */
-    offset-path: path('M 300 300 Q 250 275, 300 250 T 300 200 T 300 150 T 300 100');
-
+    offset-path: var(--scaled-path); /* 原点基準 */
     offset-rotate: 0deg;
+    z-index: 5;
+}
+.heart img:nth-child(1),
+.heart img:nth-child(2),
+.heart img:nth-child(3),
+.heart img:nth-child(4) {
+    height: auto;
+}
+.heart img:nth-child(1) {
+    width: 6vw;
+    top: 65%;
+    left: 19vw;
+    animation: moveAlongPath 6s ease-in infinite;
+}
+.heart img:nth-child(2) {
+    width: 5vw;
+    top: 75%;
+    left: 25vw;
+    animation: moveAlongPath 5s ease-in infinite;
+}
+.heart img:nth-child(3) {
+    width: 4vw;
+    top: 85%;
+    left: 20vw;
+    animation: moveAlongPath 7s ease-in infinite;
+}
+.heart img:nth-child(4) {
+    width: 4vw;
+    top: 65%;
+    left: 27vw;
+    animation: moveAlongPath 8s ease-in infinite;
 }
 
 .sns-links {
@@ -135,10 +169,7 @@ strong {
 .contents img {
     width: calc(var(--liver-image-size) - 1vw);
 }
-.description-frame {
-    height: var(--liver-image-size);
-    margin: 0;
-}
+
 .liver-image::before {
     top: calc(50% - var(--liver-image-size)/2);
     content: "";
@@ -179,6 +210,14 @@ strong {
     font-size: calc(var(--description-width-size)/16);
     position: relative;
     display: block;
+}
+.description-frame {
+    height: var(--liver-image-size);
+    margin: 0;
+}
+
+.description-pococha {
+    clip-path: inset(0 -5000px 0 -5000px); /* 上、右、下、左 */
 }
 
 .description-white {
@@ -232,23 +271,38 @@ strong {
 }
 
 
-.description-blue {
-    color: #FFFFFF;
-    background-color: rgba(85, 207, 255, 0.9); /* 背景色を50%透過 */
+.description-blue,
+.description-comment {
     border: 0px solid;
     border-radius: calc(var(--description-width-size)/16);
     margin-bottom: 2em;
 }
-.description-blue::after {
+.description-blue::after,
+.description-comment::after {
     content: "";
     position: absolute;
     top: 50%; /* 縦方向で中央に配置 */
-    right: calc(-1 * var(--description-width-size)/4 + .1vw); /* 親要素の外に三角形を配置 */
     transform: translateY(-50%); /* 三角形を縦方向に中央揃え */
-    border-width: calc(var(--description-width-size)/8);
-
     border-style: solid;
+}
+.description-blue {
+    color: #FFFFFF;
+    background-color: rgba(85, 207, 255, 0.9); /* 背景色を50%透過 */
+}
+.description-blue::after {
+    border-width: calc(var(--description-width-size)/10);
+    right: calc(-1 * var(--description-width-size)/5 + .1vw); /* 親要素の外に三角形を配置 */
     border-color: transparent transparent transparent rgba(85, 207, 255, 0.9); /* 背景色と同じ色の右向き三角形 */
+}
+.description-comment {
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.95); /* 背景色を50%透過 */
+    height: calc(var(--description-width-size)/4);
+}
+.description-comment::after {
+    border-width: calc(var(--description-width-size)/14);
+    left: calc(-1 * var(--description-width-size)/7 + .1vw); /* 親要素の外に三角形を配置 */
+    border-color: transparent rgba(255, 255, 255, .95) transparent transparent; /* 背景色と同じ色の右向き三角形 */
 }
 
 .splash {
@@ -437,6 +491,19 @@ strong {
         height: calc(36vw * var(--sm-object-rate));
         top: calc(3vw * var(--sm-object-rate));
     }
+    
+    .heart img:nth-child(1) {
+        left: 22vw;
+    }
+    .heart img:nth-child(2) {
+        left: 28vw;
+    }
+    .heart img:nth-child(3) {
+        left: 23vw;
+    }
+    .heart img:nth-child(4) {
+        left: 30vw;
+    }
 }
 @media (max-width: 568px) {
     :root {
@@ -468,7 +535,7 @@ strong {
     .liver-image-left::before {
         right: calc(50% - var(--liver-image-size)/2);
     }
-    .description {
+    .description-white {
         top: 40%;
     }
     .contents {
