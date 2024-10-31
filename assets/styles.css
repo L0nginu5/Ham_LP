@@ -6,6 +6,7 @@
     --sm-object-rate: 1.5;
     --liver-image-size: 27vw;
     --description-width-size: 32vw;
+    --angle: 0deg;
 }
 
 
@@ -32,6 +33,13 @@ img {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+h1 {
+    font-size: 3vw;
+    margin: 0;
+    padding: 0;
+}
+
 
 header {
     position: relative;
@@ -121,7 +129,7 @@ strong {
 
 .contents {
     width: 75%;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
 }
 .contents img {
@@ -144,7 +152,12 @@ strong {
         rgb(70, 178, 255) 120deg 240deg,     /* 右上 */
         rgb(167, 231, 64) 240deg 360deg  /* 右下 */
     );
-    animation: rotate 10s linear infinite; /* 回転アニメーションを適用 */
+    mask-image: conic-gradient(
+        from 0deg,
+        transparent calc(360deg - var(--angle)) 0deg,
+        rgb(242, 51, 245) 0deg
+    );
+    animation: rotate 5s linear infinite; /* 回転アニメーションを適用 */
     z-index: -1; /* 背景として配置 */
 }
 .liver-image-right::before {
@@ -164,6 +177,8 @@ strong {
 }
 .description span {
     font-size: calc(var(--description-width-size)/16);
+    position: relative;
+    display: block;
 }
 
 .description-white {
@@ -195,10 +210,13 @@ strong {
         rgb(70, 178, 255) 120deg 240deg,     /* 右上 */
         rgb(167, 231, 64) 240deg 360deg  /* 右下 */
     );
-    animation: rotate 10s linear infinite; /* 回転アニメーションを適用 */
+    mask-image: conic-gradient(
+        from 0deg,
+        transparent calc(360deg - var(--angle)) 0deg,
+        rgb(242, 51, 245) 0deg
+    );
+    animation: rotate 5s linear infinite; /* 回転アニメーションを適用 */
     z-index: -1; /* 背景として配置 */
-    /* ボーダーとして表示するために以下を設定 */
-    box-sizing: border-box; /* パディングを含めたサイズ計算 */
 }
 /* 内部の白い背景を覆う擬似要素 */
 .description-white::after {
@@ -308,13 +326,13 @@ strong {
 .smartphone-frame img {
     height: 38vw;
     width: auto;
-    z-index: 3;
+    z-index: 2;
 }
 .swiper {
     height: 36vw;
     top: 3vw;
     width: auto;
-    z-index: 5;
+    z-index: 1;
     position: relative;
 }
 
@@ -391,6 +409,9 @@ strong {
         --description-width-size: 40vw;
         --border-thickness: .6vw;
     }
+    h1 {
+        font-size: 6vw;
+    }
     .contents {
         width: 95%;
     }
@@ -422,16 +443,33 @@ strong {
         --liver-image-size: 55vw;
         --description-width-size: 47vw;
     }
+    .flex-reverse {
+        flex-direction: column-reverse;
+    }
+    .flex-reverse .description-frame {
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+    .description-frame {
+       height: calc(3 * var(--liver-image-size) / 5);
+    }
+    .flex-reverse img {
+        transform: translate(-50%, 0);
+        top: .5vw;
+    }
+    .liver-image-left::before,
+    .liver-image-right::before {
+        top: calc(25% - var(--liver-image-size)/2);
+        top: 0;
+    }
     .liver-image-right::before {
         left: calc(50% - var(--liver-image-size)/2);
-        top: calc(75% - var(--liver-image-size)/2);
     }
     .liver-image-left::before {
         right: calc(50% - var(--liver-image-size)/2);
-        top: calc(25% - var(--liver-image-size)/2);
     }
     .description {
-        top: 30%;
+        top: 40%;
     }
     .contents {
         margin-top: 0em;

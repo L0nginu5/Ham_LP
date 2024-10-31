@@ -39,6 +39,23 @@ function swiping() {
 
 
 
+const root = document.documentElement;
+let angle = 0; // 初期角度
+let speed = .61*2; // 初期の回転速度
+
+function animate() {
+    if (angle < 360) { // 360度未満であればアニメーションを続行
+        angle += speed; // 角度を速度に応じて増加
+        root.style.setProperty('--angle', `${angle}deg`);
+        requestAnimationFrame(animate); // 次のフレームで再度実行
+    }
+}
+
+function setSpeed(newSpeed) {
+    speed = newSpeed; // 回転速度を更新
+}
+
+animate(); // アニメーションを開始
 
 
 
