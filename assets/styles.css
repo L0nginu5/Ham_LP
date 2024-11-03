@@ -70,8 +70,12 @@ strong {
     height: 100%;
     background-position: center;
     filter: saturate(45%);
-    animation: background-change 12s linear infinite; /* 回転アニメーションを適用 */
+}
 
+@media (min-width: 1024px) {
+    .background-image {
+        animation: background-change 12s linear infinite; /* 回転アニメーションを適用 */
+    }
 }
 
 @media screen and (min-aspect-ratio: 3/2) {
@@ -593,7 +597,10 @@ strong {
 }
 @media (max-width: 568px) {
     :root {
-        --liver-image-size: 55vw;
+        --sns-link-size: 70px;
+        --sns-link-icon-size: 42px;
+        --sns-link-icon-hover-size: 56px;
+        --liver-image-size: 65vw;
         --description-width-size: 47vw;
     }
     .flex-reverse {
