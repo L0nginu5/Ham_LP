@@ -167,7 +167,7 @@ strong {
     margin-bottom: 2em;
 }
 .contents img {
-    width: calc(var(--liver-image-size) - 1vw);
+    width: calc(var(--liver-image-size) - 1.5vw);
 }
 
 .liver-image::before {
@@ -275,13 +275,13 @@ strong {
 .description-comment {
     border: 0px solid;
     border-radius: calc(var(--description-width-size)/16);
-    margin-bottom: 2em;
+    position: relative;
 }
 .description-blue::after,
 .description-comment::after {
     content: "";
     position: absolute;
-    top: 50%; /* 縦方向で中央に配置 */
+    top: 50%;
     transform: translateY(-50%); /* 三角形を縦方向に中央揃え */
     border-style: solid;
 }
@@ -302,7 +302,7 @@ strong {
 .description-comment::after {
     border-width: calc(var(--description-width-size)/14);
     left: calc(-1 * var(--description-width-size)/7 + .1vw); /* 親要素の外に三角形を配置 */
-    border-color: transparent rgba(255, 255, 255, .95) transparent transparent; /* 背景色と同じ色の右向き三角形 */
+    border-color: transparent rgba(255, 255, 255, 1) transparent transparent; /* 背景色と同じ色の右向き三角形 */
 }
 
 .splash {
@@ -310,7 +310,93 @@ strong {
     position: fixed;
 }
 
+.description-blue-1 {
+    filter: saturate(100%);
 
+    animation: description-blue-1-anime 20s ease infinite;
+}
+.description-comment-1 {
+    animation: description-comment-1-anime 20s ease infinite;
+}
+.description-comment-2 {
+    animation: description-comment-2-anime 20s ease infinite;
+}
+.description-blue-2 {
+    animation: description-blue-2-anime 20s ease infinite;
+}
+@keyframes description-blue-1-anime {
+    0%, 20%, 100% {
+        top: 25%;
+        opacity: 100%;
+    }
+    25%, 45% {
+        top: 25%;
+    }
+    50%, 65% {
+        top: 5%;
+        opacity: 100%;
+    }
+    70%, 95% {
+        top: -40%;
+        opacity: 0%;
+    }
+}
+@keyframes description-comment-1-anime {
+    0%, 100% {
+        top: -32%;
+        opacity: 0%;
+    }
+    20% {
+        top: 100%;
+        opacity: 0%;
+    }
+    25%, 45% {
+        top: 27%;
+        opacity: 100%;
+    }
+    50%, 65% {
+        top: 7%;
+    }
+    70%, 95% {
+        top: -32%;
+        opacity: 100%;
+    }
+}
+@keyframes description-comment-2-anime {
+    0%, 20%, 100% {
+        top: -30%;
+        opacity: 0%;
+    }
+    25%, 45% {
+        top: 100%;
+        opacity: 0%;
+    }
+    50%, 65% {
+        top: 9%;
+        opacity: 100%;
+    }
+    70%, 95% {
+        top: -30%;
+        opacity: 100%;
+    }
+}
+@keyframes description-blue-2-anime {
+    0%, 20%, 100% {
+        top: -28%;
+        opacity: 0%;
+    }
+    25%, 45% {
+        top: 100%;
+    }
+    50%, 65% {
+        top: 100%;
+        opacity: 0%;
+    }
+    70%, 95% {
+        top: -28%;
+        opacity: 100%;
+    }
+}
 
 /* アニメーションの定義 */
 @keyframes rotate {
