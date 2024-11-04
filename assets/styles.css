@@ -6,6 +6,7 @@
     --sm-object-rate: 1.5;
     --liver-image-size: 27vw;
     --description-width-size: 32vw;
+    --description-white-width-size: 32vw;
     --angle: 0deg;
 }
 
@@ -251,6 +252,16 @@ strong {
     position: relative;
     display: block;
 }
+.description-white {
+    width: var(--description-white-width-size);
+    height: calc(var(--description-white-width-size)/2);
+    background-color: #FFFFFF;
+}
+.description-white span {
+    font-size: calc(var(--description-white-width-size)/16);
+    position: relative;
+    display: block;
+}
 .description-frame {
     height: var(--liver-image-size);
     margin: 0;
@@ -261,18 +272,18 @@ strong {
 }
 
 .description-white {
-    border-radius: calc(var(--description-width-size)/10);
+    border-radius: calc(var(--description-white-width-size)/10);
     padding: var(--border-thickness); /* ボーダーの幅 */
-    padding: calc(var(--description-width-size)/32);
+    padding: calc(var(--description-white-width-size)/32);
     box-sizing: border-box; /* パディングを含めたサイズ計算 */
     overflow: hidden; /* 擬似要素がはみ出さないようにする */
     align-items: center;
     justify-content: center;
 }
 .description-white-name {
-    font-size: calc(var(--description-width-size)/10);
+    font-size: calc(var(--description-white-width-size)/10);
     text-decoration: underline;
-    padding-bottom: calc(var(--description-width-size)/16);
+    padding-bottom: calc(var(--description-white-width-size)/16);
 }
 /* 擬似要素による回転するグラデーションボーダー */
 .description-white::before {
@@ -648,6 +659,7 @@ strong {
         --sns-link-icon-hover-size: 80px;
         --liver-image-size: 38vw;
         --description-width-size: 38vw;
+        --description-white-width-size: 38vw;
         --border-thickness: .6vw;
     }
     h1 {
@@ -772,7 +784,8 @@ strong {
         --sns-link-icon-size: 42px;
         --sns-link-icon-hover-size: 56px;
         --liver-image-size: 65vw;
-        --description-width-size: 55vw;
+        --description-width-size: 42vw;
+        --description-white-width-size: 55vw;
     }
     #skip-button {
         font-size: 7vw;
