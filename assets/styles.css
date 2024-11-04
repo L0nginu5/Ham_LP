@@ -15,6 +15,32 @@ body {
     font-family: 'Apple Color Emoji', 'Inter', sans-serif;
 }
 
+.video-container {
+    width: 100vw;
+    height: 100vh;
+}
+video {
+    height: 100vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media screen and (max-aspect-ratio: 6/5) {
+    video {
+        width: 150vw;
+        height: auto;
+
+    }
+}
+
+.splash-background {
+    position: fixed;
+    background-color: #fdeaa5;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
 
 img {
     position: relative;
@@ -316,7 +342,6 @@ strong {
 
 .description-blue-1 {
     filter: saturate(100%);
-
     animation: description-blue-1-anime 20s ease infinite;
 }
 .description-comment-1 {
@@ -327,6 +352,14 @@ strong {
 }
 .description-blue-2 {
     animation: description-blue-2-anime 20s ease infinite;
+}
+.description-blue-1 strong {
+    animation: strong-anime-1 20s ease infinite;
+    display: inline-block;
+}
+.description-blue-2  strong {
+    animation: strong-anime-2 20s ease infinite;
+    display: inline-block;
 }
 @keyframes description-blue-1-anime {
     0%, 20%, 100% {
@@ -401,8 +434,29 @@ strong {
         opacity: 100%;
     }
 }
+@keyframes strong-anime-1 {
+    0%, 15% {
+        transform: scale(1);
+    }
+    5% {
+        transform: scale(1.1);
+    }
+    10% {
+        transform: scale(1);
+    }
+}
+@keyframes strong-anime-2 {
+    75%, 90% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    85% {
+        transform: scale(1);
+    }
+}
 
-/* アニメーションの定義 */
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -559,15 +613,15 @@ strong {
         --sns-link-size: 100px;
         --sns-link-icon-size: 60px;
         --sns-link-icon-hover-size: 80px;
-        --liver-image-size: 40vw;
-        --description-width-size: 40vw;
+        --liver-image-size: 38vw;
+        --description-width-size: 38vw;
         --border-thickness: .6vw;
     }
     h1 {
         font-size: 7vw;
     }
     .contents {
-        width: 95%;
+        width: 90%;
     }
     .logo {
         width: 150px;
@@ -590,6 +644,80 @@ strong {
     .swiper {
         height: calc(36vw * var(--sm-object-rate));
         top: calc(3vw * var(--sm-object-rate));
+    }
+
+    @keyframes description-blue-1-anime {
+        0%, 20%, 100% {
+            top: 25%;
+            opacity: 100%;
+        }
+        25%, 45% {
+            top: 25%;
+        }
+        50%, 65% {
+            top: 5%;
+            opacity: 100%;
+        }
+        70%, 95% {
+            top: -40%;
+            opacity: 0%;
+        }
+    }
+    @keyframes description-comment-1-anime {
+        0%, 100% {
+            top: -32%;
+            opacity: 0%;
+        }
+        20% {
+            top: 100%;
+            opacity: 0%;
+        }
+        25%, 45% {
+            top: 27%;
+            opacity: 100%;
+        }
+        50%, 65% {
+            top: 7%;
+        }
+        70%, 95% {
+            top: -28%;
+            opacity: 100%;
+        }
+    }
+    @keyframes description-comment-2-anime {
+        0%, 20%, 100% {
+            top: -30%;
+            opacity: 0%;
+        }
+        25%, 45% {
+            top: 100%;
+            opacity: 0%;
+        }
+        50%, 65% {
+            top: 9%;
+            opacity: 100%;
+        }
+        70%, 95% {
+            top: -26%;
+            opacity: 100%;
+        }
+    }
+    @keyframes description-blue-2-anime {
+        0%, 20%, 100% {
+            top: -28%;
+            opacity: 0%;
+        }
+        25%, 45% {
+            top: 100%;
+        }
+        50%, 65% {
+            top: 100%;
+            opacity: 0%;
+        }
+        70%, 95% {
+            top: -24%;
+            opacity: 100%;
+        }
     }
     
     .heart img:nth-child(1) {
