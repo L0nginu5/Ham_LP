@@ -94,14 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+
 
 
 function setScaledPath() {
