@@ -30,8 +30,16 @@ video {
     video {
         width: 150vw;
         height: auto;
-
     }
+}
+#skip-button {
+    font-size: 4vw;
+    position: fixed;
+    bottom: 8vw;
+    right: 8vw;
+}
+#skip-button:hover {
+    opacity: .5;
 }
 
 .splash-background {
@@ -60,8 +68,10 @@ img {
     text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 h1 {
     font-size: 4vw;
+    font-family: YuGothic,'Yu Gothic',YuGothic,'Yu Gothic',sans-serif;
     margin-top: 2em;
     margin-bottom: 0;
     padding: 0;
@@ -299,7 +309,28 @@ strong {
     border-radius: inherit; /* 親要素と同じ角の丸み */
     z-index: -1; /* コンテンツより前面に表示 */
 }
-
+.fade-in {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+}
+.fade-out {
+    animation: fadeOut 1s forwards; /* 0.5秒でフェードアウト */
+}
+/* フェードアウトのアニメーション */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none; /* 完全に消えたら非表示にする */
+    }
+}
 
 .description-blue,
 .description-comment {
@@ -334,6 +365,8 @@ strong {
     left: calc(-1 * var(--description-width-size)/7 + .1vw); /* 親要素の外に三角形を配置 */
     border-color: transparent rgba(255, 255, 255, 1) transparent transparent; /* 背景色と同じ色の右向き三角形 */
 }
+
+
 
 .splash {
     z-index: 100;
@@ -741,6 +774,9 @@ strong {
         --liver-image-size: 65vw;
         --description-width-size: 42vw;
     }
+    #skip-button {
+        font-size: 7vw;
+    }
     .flex-reverse {
         flex-direction: column-reverse;
     }
@@ -753,7 +789,7 @@ strong {
     }
     .flex-reverse img {
         transform: translate(-50%, 0);
-        top: .5vw;
+        top: .8vw;
     }
     .liver-image-left::before,
     .liver-image-right::before {
