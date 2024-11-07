@@ -51,6 +51,27 @@ video {
     z-index: -1;
 }
 
+.splash-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* ページ全体を覆う */
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    /* 白背景 */
+    z-index: 5;
+    /* ヘッダーより上に表示 */
+}
+#splash-logo {
+    filter: saturate(0);
+    opacity: 1;
+    transition: filter 3s ease-in-out;
+    width: 30vw;
+    z-index: 5;
+}
+
 img {
     position: relative;
 }
@@ -96,6 +117,7 @@ strong {
     height: auto;
 }
 
+.splash-background-image,
 .background-image {
     background-image: url("images/backgroundImage.jpg");
     background-size: 100vw auto;
@@ -116,6 +138,7 @@ strong {
 }
 
 @media screen and (min-aspect-ratio: 3/2) {
+    .splash-background-image,
     .background-image {
         background-size: 100vw auto;
     }
@@ -483,7 +506,7 @@ strong {
         transform: scale(1);
     }
     5% {
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
     10% {
         transform: scale(1);
@@ -494,7 +517,7 @@ strong {
         transform: scale(1);
     }
     80% {
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
     85% {
         transform: scale(1);
@@ -786,6 +809,9 @@ strong {
         --liver-image-size: 65vw;
         --description-width-size: 42vw;
         --description-white-width-size: 55vw;
+    }
+    #splash-logo {
+        width: 60vw;
     }
     #skip-button {
         font-size: 7vw;
