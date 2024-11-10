@@ -603,7 +603,7 @@ strong {
     font-size: calc(var(--description-width-size)/16);
 }
 .sns-links strong {
-    font-size: calc(var(--description-width-size)/14);
+    font-size: calc(var(--description-width-size)/15);
     color: rgb(255, 0, 166);
 }
 
